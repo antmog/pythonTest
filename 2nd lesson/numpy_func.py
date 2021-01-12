@@ -1,8 +1,10 @@
 import numpy as np
+import time
 import timeit as tm
 
 
 def main():
+    time.sleep(1)
     arr = np.array([1, 2])
     print(arr.sum())
     print(arr.max())
@@ -23,5 +25,13 @@ def main():
     regions['region'].sort()
     print(regions)
 
+    np.arange(3, 16, 4)  # from 3 to 16 with step 4
 
-print(tm.Timer('main').timeit(1000000)/1000000)
+
+def main1():
+    time.sleep(1)
+
+
+print('ehlo')
+print(tm.Timer(lambda: main()).timeit(5))
+print(tm.Timer(lambda: main1(), 'import time').timeit(5))
